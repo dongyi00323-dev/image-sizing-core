@@ -1,0 +1,20 @@
+{
+  "name": "image-sizing-core",
+  "version": "0.1.0",
+  "description": "DPI conversion, uniform image scaling and solid margin padding core",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "src", "LICENSE", "README.md", "THIRD_PARTY_NOTICES.md", "third-party-licenses"],
+  "engines": {"node": ">=24.16.0 <25"},
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "fixtures:generate": "node scripts/generate-fixtures.ts",
+    "test": "npm run fixtures:generate && vitest run --configLoader native --pool=threads --maxWorkers=1",
+    "example": "npm run build && node examples/synthetic-demo.mjs"
+  },
+  "dependencies": {"sharp": "0.35.4", "zod": "4.6.5"},
+  "devDependencies": {"@types/node": "24.12.1", "typescript": "5.9.3", "vitest": "5.0.0"}
+}
